@@ -11,9 +11,6 @@ nav: true
 
 <div class="publications">
 
-<!-- <h1 class="year" id="selected">selected</h1>
-{% bibliography -f selected %} -->
-
 <h1 class="year" id="papers">all</h1>
 {% bibliography -f papers %}
 
