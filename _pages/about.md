@@ -6,7 +6,7 @@ description:
 
 profile:
   align: right
-  image: /assets/img/ncsr_logo.png
+  image: ncsr_logo.png
   address:
 
 news: true  # includes a list of news items
