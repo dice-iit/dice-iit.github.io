@@ -6,7 +6,7 @@ description:
 
 profile:
   align: right
-  image: sailing-locations.png
+  image: https://www.demokritos.gr/wp-content/themes/demokritos/images/logo/logo.jpg
   address:
 
 news: true  # includes a list of news items
