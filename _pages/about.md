@@ -22,6 +22,6 @@ Its vision is to connect researchers, scientists and AI professionals with busin
 
 **Research synopsis**: Our principal research interests lie in the development of machine learning and statistical methodologies for solving problems involving un-/semi-/fully-structured financial data.
 
-<h1 class="year" id="selected">Selected Papers</h1>
-{% bibliography -f selected %}
+<!-- <h1 class="year" id="selected">Selected Papers</h1>
+{% bibliography -f selected %} -->
 
