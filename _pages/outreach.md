@@ -1,14 +1,17 @@
 ---
 layout: page
-title: open-source
-permalink: /open-source/
-description: On June 11th, 2020, we launched the <a href="http://casl-project.ai/"><u>CASL</u></a> (Composible, Automatic, and Scable ML) open source consortium that brings our research and development at Petuum Inc. and CMU Sailing Lab on Distributed ML (e.g., AutoDist, AdaptDL), Automated ML (e.g., Dragonfly, ProBO), and Composable ML (e.g., Texar, Forte) implemented across PyTorch and TensorFlow under a unified umbrella for a Production and Industrial AI Platform.
+title: outreach
+permalink: /outreach/
+description: Projects, datasets and pilots the DICE team has open-sourced!
 nav: true
-display_categories: [project]
+display_categories: [project, dataset, demo]
 horizontal: false
 ---
 
-<b>SAILING Members:</b> If you want to add your open-source project to this page, please refer to the <a href="https://github.com/sailing-lab/sailing-lab.github.io/blob/main/docs/open-source.md">instruction</a>.
+<!-- <b>SAILING Members:</b> If you want to add your open-source project to this page, please refer to the <a href="https://github.com/sailing-lab/sailing-lab.github.io/blob/main/docs/open-source.md">instruction</a>. -->
+
+Aiming to foster collaboration and drive progress within the research community, the team has compiled, curated, and released financial datasets and pilot applications. Moreover, it supervises MSc students on FinTech-related topics and participates in financial workshops and tasks.
+
 
 <div class="projects">
   {% if site.enable_project_categories and page.display_categories %}

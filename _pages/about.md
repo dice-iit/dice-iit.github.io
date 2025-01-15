@@ -6,7 +6,7 @@ description:
 
 profile:
   align: right
-  image: https://www.demokritos.gr/wp-content/themes/demokritos/images/logo/logo.jpg
+  image: /assets/img/ncsr_logo.png
   address:
 
 news: true  # includes a list of news items
@@ -14,7 +14,14 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Welcome to the SAILING (Statistical Artificial Intelligence & Integrative Genomics) Lab! SAILING is a research laboratory created in 2004, and is headed by Professor Eric Xing. We are primarily based at Carnegie Mellon University and Mohamed bin Zayed University of Artificial Intelligence.
+DICE is an AI centre of excellence focusing on document intelligence. Its mission is to develop novel AI methods and become a world class reference centre in AI for business documents.
 
-**Research synopsis**: Our principal research interests lie in the development of machine learning and statistical methodology, and large-scale computational system and architecture, for solving problems involving automated learning, reasoning, and decision-making in high-dimensional, multimodal, and dynamic possible worlds in artificial, biological, and social systems.
+DICE is a first of its kind centre in Greece and has the aspiration to attract talent from all over the world.
+
+Its vision is to connect researchers, scientists and AI professionals with business experts from a wide range of industrial sectors, aiming at using emerging technologies to accelerate innovation.
+
+**Research synopsis**: Our principal research interests lie in the development of machine learning and statistical methodologies for solving problems involving un-/semi-/fully-structured financial data.
+
+<h1 class="year" id="selected">Selected Papers</h1>
+{% bibliography -f selected %}
 
