@@ -1,18 +1,11 @@
-"Adams":
-  - firstname: ["Edwin", "E.", "E. P.", "Edwin Plimpton"]
-    url: https://en.wikipedia.org/wiki/Edwin_Plimpton_Adams
+"Zavitsanos":
+  - firstname: ["Ilias", "I.", "I. Z.", "Ilias Zavitsanos"]
+    url: https://github.com/izavits
 
-"Podolsky":
-  - firstname: ["Boris", "B.", "B. Y.", "Boris Yakovlevich"]
-    url: https://en.wikipedia.org/wiki/Boris_Podolsky
+"Bougiatiotis":
+  - firstname: ["Konstantis", "K.", "K. B.", "Konstantinos Bougiatiotis"]
+    url: https://kbogas.github.io/
 
-"Rosen":
-  - firstname: ["Nathan", "N."]
-    url: https://en.wikipedia.org/wiki/Nathan_Rosen
-
-"Bach": 
-  - firstname: ["Johann Sebastian", "J. S."]
-    url: https://en.wikipedia.org/wiki/Johann_Sebastian_Bach
-
-  - firstname: ["Carl Philipp Emanuel", "C. P. E."]
-    url: https://en.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach
+"Sideras":
+  - firstname: ["Andreas", "A.", "A. S.", "Andreas Sideras"]
+    url: https://www.iit.demokritos.gr/people/andreas-sideras/
