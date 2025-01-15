@@ -14,7 +14,7 @@ nav: true
 <h1 class="year" id="selected">selected</h1>
 {% bibliography -f selected %}
 
-<h1 class="year" id="dissertations">theses</h1>
-{% bibliography -f dissertations %}
+<h1 class="year" id="papers">all</h1>
+{% bibliography -f papers %}
 
 </div>
