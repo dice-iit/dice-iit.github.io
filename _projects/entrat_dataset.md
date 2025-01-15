@@ -1,0 +1,9 @@
+---
+layout: page
+title: ENTRANT
+description: A Large Financial Dataset for Table Understanding 
+img: dataset_entrant_logo.png
+importance: 10
+category: dataset
+redirect: https://github.com/iit-Demokritos/entrant
+---
