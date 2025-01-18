@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Eirini Spyropoulou
-description: (Now) Ernst&Young
+description:
 img: https://ethosevents.eu/wp-content/uploads/2023/06/Spyropoulou_Eirini.jpg
 importance: 10
 category: alumni

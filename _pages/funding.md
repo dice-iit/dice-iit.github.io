@@ -1,8 +1,9 @@
 ---
 layout: page
-permalink: /sponsors/
-title: sponsors
+permalink: /funding/
+title: Funding
 nav: true
+order: 5
 ---
 
 **Acknowledgements**: We are grateful to the following agencies/institutions for their contributions to our research: Qualco and Ernst&Young.

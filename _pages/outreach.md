@@ -1,11 +1,12 @@
 ---
 layout: page
-title: outreach
+title: Outreach
 permalink: /outreach/
 description: Projects, datasets and pilots the DICE team has open-sourced!
 nav: true
 display_categories: [project, dataset, demo]
 horizontal: false
+order: 2
 ---
 
 <!-- <b>SAILING Members:</b> If you want to add your open-source project to this page, please refer to the <a href="https://github.com/sailing-lab/sailing-lab.github.io/blob/main/docs/open-source.md">instruction</a>. -->
