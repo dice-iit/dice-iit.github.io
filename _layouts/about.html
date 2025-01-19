@@ -33,6 +33,11 @@ layout: default
       {% include news.html %}
     {% endif %}
 
+     <!-- Selected papers -->
+   {% if page.selected_papers %}
+     {% include selected_papers.html %}
+   {% endif %}
+
     {% if page.profile.image %}
     <img class="img-fluid" src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}">
     {% endif %}

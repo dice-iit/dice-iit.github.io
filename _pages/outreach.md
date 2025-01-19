@@ -4,7 +4,7 @@ title: Outreach
 permalink: /outreach/
 description: Projects, datasets and pilots the DICE team has open-sourced!
 nav: true
-display_categories: [project, dataset, demo]
+display_categories: [projects, datasets, demos]
 horizontal: false
 order: 2
 ---
