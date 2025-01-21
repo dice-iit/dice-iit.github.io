@@ -2,7 +2,7 @@
 layout: page
 title: Ion Androutsopoulos
 description:
-img: https://pages.aueb.gr/users/ion/images/ion_and_robot.jpg
+img: https://dice.iit.demokritos.gr/wp-content/uploads/2019/10/ion_lib.jpg
 importance: 10
 category: alumni
 redirect: https://scholar.google.com/citations?user=4UJm5EQAAAAJ&hl=en
