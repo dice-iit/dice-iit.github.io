@@ -5,7 +5,7 @@ permalink: /people/
 description:
 nav: true
 display_categories: [current, alumni]
-horizontal: true
+horizontal: false
 sitetitle: true
 order: 3
 ---

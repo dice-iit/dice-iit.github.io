@@ -5,13 +5,13 @@ permalink: /outreach/
 description: Projects, datasets and pilots the DICE team has open-sourced!
 nav: true
 display_categories: [projects, datasets, demos]
-horizontal: false
+horizontal: true
 order: 2
 ---
 
 <!-- <b>SAILING Members:</b> If you want to add your open-source project to this page, please refer to the <a href="https://github.com/sailing-lab/sailing-lab.github.io/blob/main/docs/open-source.md">instruction</a>. -->
 
-Aiming to foster collaboration and drive progress within the research community, the team has compiled, curated, and released financial datasets and pilot applications. Moreover, it supervises MSc students on FinTech-related topics and participates in financial workshops and tasks.
+Aiming to foster **collaboration** and drive progress within the research community, the team has compiled, curated, and released **financial datasets** and **pilot applications**. Moreover, it supervises MSc students on FinTech-related topics and participates in financial workshops and tasks.
 
 
 <div class="projects">
@@ -24,7 +24,7 @@ Aiming to foster collaboration and drive progress within the research community,
       <!-- Generate cards for each project -->
       {% if page.horizontal %}
         <div class="container">
-          <div class="row row-cols-2">
+          <div class="row row-cols-1">
           {% for project in sorted_projects %}
             {% include projects_horizontal.html %}
           {% endfor %}
@@ -45,7 +45,7 @@ Aiming to foster collaboration and drive progress within the research community,
     <!-- Generate cards for each project -->
     {% if page.horizontal %}
       <div class="container">
-        <div class="row row-cols-2">
+        <div class="row row-cols-1">
         {% for project in sorted_projects %}
           {% include projects_horizontal.html %}
         {% endfor %}

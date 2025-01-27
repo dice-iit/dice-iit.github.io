@@ -2,7 +2,7 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: DICE # the website title (if blank, full name will be used instead)
+title: Document Intelligence Centre of Excellence # the website title (if blank, full name will be used instead)
 first_name: DICE
 middle_name: at
 last_name: IIT
@@ -24,7 +24,7 @@ future: true # Also render sites which are dated in the future
 
 # repo color theme
 repo_theme_light: default # https://github.com/anuraghazra/github-readme-stats/blob/master/themes/README.md
-repo_theme_dark: dark # https://github.com/anuraghazra/github-readme-stats/blob/master/themes/README.md
+repo_theme_dark: github_dark # https://github.com/anuraghazra/github-readme-stats/blob/master/themes/README.md
 repo_trophies:
   enabled: true
   theme_light: flat # https://github.com/ryo-ma/github-profile-trophy
@@ -78,10 +78,10 @@ wikidata_id: # your wikidata id
 dblp_url: # your DBLP profile url
 stackoverflow_id: #your stackoverflow id
 
-rss_icon: true
+rss_icon: false
 
-contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+contact_note: #>
+  Currently no available socials for the group!
 
 google_analytics: #UA-XXXXXXXXX # out your google-analytics code
 panelbear_analytics: #XXXXXXXXX # panelbear analytics site ID
@@ -115,6 +115,9 @@ collections:
   projects:
     output: true
     permalink: /projects/:path/
+  members:
+    output: true
+    permalink: /members/:path
 
 news_limit: 30
 
@@ -185,6 +188,30 @@ scholar:
   # preprocessing may conflict with MathJAX if the latter is enabled.
   # See https://github.com/alshedivat/al-folio/issues/357.
   bibtex_filters: [latex, smallcaps, superscript]
+
+  # Filter out certain bibtex entry keywords used internally from the bib output
+  filtered_bibtex_keywords:
+    [
+      abbr,
+      abstract,
+      additional_info,
+      altmetric,
+      arxiv,
+      award,
+      award_name,
+      bibtex_show,
+      blog,
+      code,
+      html,
+      pdf,
+      poster,
+      preview,
+      selected,
+      slides,
+      supp,
+      video,
+      website,
+    ]
 
   replace_strings: true
   join_strings: true

@@ -18,6 +18,8 @@ layout: default
         {% if page.profile.href %}<a href="{{ page.profile.href | relative_url }}">{% endif %}
           <img class="img-fluid{% assign ext = page.profile.image | slice: -4, 4 %}{% if ext != '.svg' %} z-depth-1 rounded{% endif %}" src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}" alt="{{ page.profile.name }}">
         {% if page.profile.href %}</a>{% endif %}
+      {% else %}
+          <img class="img-fluid{% assign ext = 'profile_placeholder.png' | slice: -4, 4 %}{% if ext != '.svg' %} z-depth-1 rounded{% endif %}" src="{{ 'profile_placeholder.png' | prepend: '/assets/img/' | relative_url }}" alt="placeholder">
       {% endif %}
       {% if page.profile.address %}
         <div class="address">
@@ -71,16 +73,6 @@ layout: default
       </div>
     {% endif %}
 
-    
-    {% if page.footer_image %}
-      <div class="footer" style="padding-top:30px;">
-        <img class="img-fluid" src="{{ '/assets/img/logo_ncsr_iit_merged.png' | relative_url }}">
-      </div>
-      {% endif %}
   </article>
-
-  
-
-
 
 </div>
