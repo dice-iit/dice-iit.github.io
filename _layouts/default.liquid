@@ -4,7 +4,7 @@
   <head>
     {% if page.redirect %}
       {% if page.redirect == true %}
-        {% assign redirect = site.baseurl | append: '/' %}
+        {% assign redirect = '/' %}
       {% elsif page.redirect contains '://' %}
         {% assign redirect = page.redirect %}
       {% else %}
