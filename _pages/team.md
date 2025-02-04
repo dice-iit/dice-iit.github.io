@@ -59,3 +59,19 @@ nav_rank: 1
 </p>
     {% endfor %}
 {% endfor %}
+
+<div class="container mt-5" role="main">
+    <h2 id="alumni">Alumni</h2>
+    <ul>
+        <li>Ion Androutsopoulos</li>
+        <li>Ilias Chalkidis</li>
+        <li>George Giannakopoulos</li>
+        <li>Lefteris Loukas</li>
+        <li>Makis Malakasiotis</li>
+        <li>Nikos Manginas</li>
+        <li>Dimitris Mavroeidis</li>
+        <li>George Petasis</li>
+        <li>Eirini Spyropoulou</li>
+        <li>Manos Fergadiotis</li>
+    </ul>
+</div>
