@@ -9,7 +9,7 @@ footer_image: true # to add the ncsr/ipt logo at the end
 profile:
   align: right
   image: logo_dice_gpt.png
-  address: >
+  more_info: >
     National Center for Scientific Research Demokritos <br />
     Patr. Gregoriou E & Neapoleos Str 27 <br /> 
     15341 Agia Paraskevi <br />
