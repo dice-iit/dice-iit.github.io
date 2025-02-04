@@ -11,7 +11,7 @@ nav_rank: 1
 {% for group in groups %}
 ## {{ group }}
 
-    {% assign members = site.members | sort: "lastname" | where: "group", group %}
+    {% assign members = site.members | sort: "in_group_rank" | where: "group", group %}
     {% for member in members %}
 <p>
     <div class="card {% if member.inline == false %}hoverable{% endif %}">
@@ -50,7 +50,7 @@ nav_rank: 1
                         <a href="{{ member.profile.website }}" class="card-link" target="_blank"><i class="fas fa-globe"></i></a>
                     {% endif %}
                     <p class="card-text">
-                        <small class="test-muted"><i class="fas fa-thumbtack"></i> {{ member.profile.address | replace: '<br />', ', ' }}</small>
+                        <small class="test-muted"><i class="fas fa-thumbtack"></i> {{ member.profile.more_info | replace: '<br />', ', ' }}</small>
                     </p>
                 </div>
             </div>
