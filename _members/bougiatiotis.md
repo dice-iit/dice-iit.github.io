@@ -23,8 +23,8 @@ profile:
     email: bogas.ko@iit.demokritos.gr
     website: https://kbogas.github.io
     github: kbogas
-    linkedin: jahrim-gabriele-cesario-288a822b8
-    more_info: >
+    linkedin: bogasko
+    address: >
         National Center for Scientific Research Demokritos <br />
         Patr. Gregoriou E & Neapoleos Str 27 <br /> 
         15341 Agia Paraskevi <br />

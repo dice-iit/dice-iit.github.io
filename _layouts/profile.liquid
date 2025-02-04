@@ -5,7 +5,7 @@ layout: default
 <div class="post">
 
   <header class="post-header">
-    {% include social_header.liquid %}
+    <!-- {% include social_header.liquid %} THIS IS THE GLOBAL EMAIL -->
     <h1 class="post-title">
      {% if page.sitetitle %}{{ site.title }}{% else %}{{ page.title }}{% endif %}
     </h1>
@@ -23,8 +23,6 @@ layout: default
       {% if page.profile.address %}
         <div class="address">
           <p>
-            {% if page.profile.href %}<a href="{{ page.profile.href | relative_url }}">{% endif %}
-              <span class="name">{{ page.profile.name }}</span>
             {% if page.profile.href %}</a>{% endif %}
             {% if page.profile.position %}<br />{{ page.profile.position }}{% endif %}
             {% if page.profile.email %}<br /><a href="mailto:{{ page.profile.email }}"><i class="fas fa-envelope"></i> {{ page.profile.email }}</a>{% endif %}
