@@ -48,13 +48,13 @@ layout: default
       {% include news.liquid limit=true %}
     {% endif %}
 
-    <!-- Latest posts -->
+    <!-- Latest posts
     {% if page.latest_posts and page.latest_posts.enabled %}
       <h2>
         <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
       </h2>
       {% include latest_posts.liquid %}
-    {% endif %}
+    {% endif %}  -->
 
     <!-- Selected papers -->
     {% if page.selected_papers %}
@@ -63,6 +63,8 @@ layout: default
       </h2>
       {% include selected_papers.liquid %}
     {% endif %}
+
+    
 
     <!-- Social -->
     {% if page.social %}
@@ -73,8 +75,19 @@ layout: default
       </div>
     {% endif %}
 
-    {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
-      {% include newsletter.liquid center=true %}
-    {% endif %}
+      {% if page.footer_image %}
+      <div class="footer" style="padding-top:30px;">
+        <img class="img-fluid" text_align=center width=80% src="{{ '/assets/img/logo_ncsr_iit_merged.png' | relative_url }}">
+      </div>
+      {% endif %}
+    
+    <!-- This is specifically for the person -->
+    {% if page.publications %}
+        <h2 id="publications">Publications</h2>
+        <div class="publications">
+          {% bibliography -f papers -q @*[{{page.publications}}]* %}
+        </div>
+      {% endif %}
+
   </article>
 </div>

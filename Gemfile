@@ -7,6 +7,7 @@ group :jekyll_plugins do
     gem 'jekyll-archives'
     gem 'jekyll-email-protect'
     gem 'jekyll-feed'
+    gem 'jekyll-github-metadata'
     gem 'jekyll-get-json'
     gem 'jekyll-imagemagick'
     gem 'jekyll-jupyter-notebook'
@@ -17,6 +18,7 @@ group :jekyll_plugins do
     gem 'jekyll-scholar'
     gem 'jekyll-sitemap'
     gem 'jekyll-tabs'
+    gem 'jekyll-target-blank'
     gem 'jekyll-terser', :git => "https://github.com/RobertoJBeltran/jekyll-terser.git"
     gem 'jekyll-toc'
     gem 'jekyll-twitter-plugin'

@@ -1,34 +1,51 @@
-"adams":
-  - firstname: ["Edwin", "E.", "E. P.", "Edwin Plimpton"]
-    url: https://en.wikipedia.org/wiki/Edwin_Plimpton_Adams
+"paliouras":
+  - firstname: ["Georgios", "G.", "G., P.", "Paliouras, Georgios"]
+    url: https://scholar.google.com/citations?user=-pec7wIAAAAJ&hl=en
 
-"podolsky":
-  - firstname: ["Boris", "B.", "B. Y.", "Boris Yakovlevich"]
-    url: https://en.wikipedia.org/wiki/Boris_Podolsky
+"zavitsanos":
+  - firstname: ["Elias", "E.", "E., Z.", "Zavitsanos, Elias"]
+    url: https://scholar.google.com/citations?user=ZRtNYeAAAAAJ&hl=en&oi=ao
 
-"rosen":
-  - firstname: ["Nathan", "N."]
-    url: https://en.wikipedia.org/wiki/Nathan_Rosen
+"bougiatiotis":
+  - firstname: ["Konstantinos", "K.", "K., B.", "Bougiatiotis, Konstantinos"]
+    url: https://scholar.google.com/citations?user=FUgj2joAAAAJ
 
-"bach":
-  - firstname: ["Johann Sebastian", "J. S."]
-    url: https://en.wikipedia.org/wiki/Johann_Sebastian_Bach
+"sideras":
+  - firstname: ["Andreas", "A.", "A. S.", "Sideras, Andreas"]
+    url: https://www.iit.demokritos.gr/people/andreas-sideras/
 
-  - firstname: ["Carl Philipp Emanuel", "C. P. E."]
-    url: https://en.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach
+"vouros":
+  - firstname: ["George", "G.", "G. V.", "Vouros, George"]
+    url: https://scholar.google.com/citations?user=PBX9aQUAAAAJ&hl=en
 
-"przibram":
-  - firstname: ["Karl"]
-    url: https://link.springer.com/article/10.1007/s00016-019-00242-z
 
-"schrodinger":
-  - firstname: ["Erwin"]
-    url: https://en.wikipedia.org/wiki/Erwin_Schr%C3%B6dinger
+"loukas":
+  - firstname: ["Lefteris", "L.", "L. L.", "Loukas, Lefteris"]
+    url: https://scholar.google.com/citations?hl=en&user=Bh20TSgAAAAJ
 
-"lorentz":
-  - firstname: ["Hendrik Antoon"]
-    url: https://en.wikipedia.org/wiki/Hendrik_Lorentz
+"kelesis":
+  - firstname: ["Dimitrios", "D.", "D. K.", "Kelesis, Dimitrios"]
+    url: https://www.iit.demokritos.gr/people/dimitrios-kelesis-2/
 
-"planck":
-  - firstname: ["Max"]
-    url: https://en.wikipedia.org/wiki/Max_Planck
+"fergadiotis":
+  - firstname: ["Manos", "M.", "M. F.", "Fergadiotis, Manos"]
+    url: https://scholar.google.com/citations?user=fTbBVUUAAAAJ&hl=en
+
+"chalkidis":
+  - firstname: ["Ilias", "I.", "I. C.", "Chalkidis, Ilias"]
+    url: https://scholar.google.com/citations?user=BrtAqz8AAAAJ&hl=en
+
+"androutsopoulos":
+  - firstname: ["Ion", "I.", "I. A.", "Androutsopoulos, Ion"]
+    url: https://scholar.google.com/citations?user=4UJm5EQAAAAJ&hl=en
+
+"malakasiotis":
+  - firstname: ["Prodromos", "P.", "P. M.", "Malakasiotis, Prodromos"]
+    url: https://scholar.google.com/citations?hl=en&user=36n9818AAAAJ
+"spyropoulou":
+  - firstname: ["Eirini", "E.", "E. S.", "Spyropoulou, Eirini"]
+    url: https://scholar.google.com/citations?user=cxr0WukAAAAJ&hl=en
+
+"mavroeidis":
+  - firstname: ["Dimitris", "D.", "D. M.", "Mavroeidis, Dimitris"]
+    url: https://scholar.google.com/citations?hl=en&user=SDehzAQAAAAJ
