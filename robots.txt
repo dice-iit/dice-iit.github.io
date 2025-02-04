@@ -1,1 +1,1 @@
-User-agent: * Disallow: Sitemap: https:///dice-iit.github.io/sitemap.xml
+User-agent: * Disallow: Sitemap: https://dice-iit.github.io/sitemap.xml
