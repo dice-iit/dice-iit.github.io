@@ -3,11 +3,11 @@ layout: profile
 inline: false
 group: Members
 group_rank: 1
-in_group_rank: 3
+in_group_rank: 2
 team_frontpage: true
 
 title: Konstantinos Bougiatiotis
-description: Profile of PhD Student Konstantinos Bougiatiotis, Doctoral Researcher at the Programming Group.
+description: Profile of PhD Student Konstantinos Bougiatiotis
 lastname: Bougiatiotis
 publications: 'author^=*Bougiatiotis'
 
