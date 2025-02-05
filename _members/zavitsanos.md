@@ -12,7 +12,8 @@ lastname: Zavitsanos
 publications: 'author^=*Zavitsanos'
 
 teaser: >
-    I am the Team Lead for DICE group. Interested in PU-learning and beer! 
+    Team lead. 
+    Research interests: machine learning, weak supervision, learning from imbalanced data, deep learning.
 
 profile:
     name: Ilias Zavitsanos
@@ -30,8 +31,6 @@ profile:
         Athens, Greece
 ---
 
-Ilias Zavitsanos was born in Athens, Greece and he graduated from the National and Kapodistrian University of Athens, Department of Informatics and Telecommunications, having focused his research interests in the domain of intelligent web services. 
+Ilias Zavitsanos has graduated from the National and Kapodistrian University of Athens, Dpt. of Informatics and Telecommunications. He holds a Ph.D. on Ontology Learning and Evaluation from Texts, from the Dpt. of Information and Communication Systems Engineering at the University of the Aegean. 
 
-Afterward, he joined the Department of Information and Communication Systems Engineering at the University of Aegean, where he completed his PhD on Ontology Learning and Evaluation from Texts. The research was conducted within the Software and Knowledge Engineering Laboratory of NCSR Demokritos, in collaboration with the University of Aegean. He then worked as a research fellow for the Software and Knowledge Engineering Lab at the Institute of Informatics and Telecommunications of NCSR Demokritos in Athens, Greece, as well as for the Department of Information and Communication Systems Engineers at the University of the Aegean.
-
-Finally, he has also worked in the industry as a software engineer and data scientist, building business analytics tools, prediction, and machine learning models.
+He is interested in machine learning, topic modeling, information retrieval, and deep learning. He has worked as a research fellow at the NCSR Demokritos and for the University of the Aegean. He has also worked in the industry, as a software engineer and data scientist. 
