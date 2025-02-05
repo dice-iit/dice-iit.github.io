@@ -11,20 +11,22 @@ nav_order: 6
 Besides sharing knowledge with new generations of computer scientists,
 we value the insights and view of the continuously renewing student body on our disciplines.
 Further, we enjoy close research collaboration with motivated students,
-often performed as a thesis or in a HiWi position.
-We invite you to join our [courses](#courses),
-to write a [thesis](#theses) with us or to [join us as a PhD student]({{ '/open-positions' | relative_url }}).
+often performed as a thesis!
+
+<!-- We invite you to join our [courses](#courses),
+to write a [thesis](#theses) with us or to [join us as a PhD student]({{ '/open-positions' | relative_url }}). -->
 
 ## Courses
 
 Currently [Ilias Zavitsanos](https:dice-iit.github.io/members/zavistanos) is teaching the ["Big Data Mining" Course](https://msc-data-science.iit.demokritos.gr/en/classes/big-data-mining) at the [MSc in "Data Science"](https://msc-data-science.iit.demokritos.gr/en), a collaboration between NCSR Demokritos and the University of Peloponnese.
 
-Check out the [course details]() and [resources](https://github.com/izavits/msc_datascience)! 
+Check out the [course details](https://msc-data-science.iit.demokritos.gr/en/classes/big-data-mining) and [resources](https://github.com/izavits/msc_datascience)! 
 
 ## Theses
 
 We offer co-supervsision for Bachelor's and Master's theses for computer science students.
 
+**Check out [current open theses](https://www.iit.demokritos.gr/education/subjects-msc-bsc-internships/) and [past theses](https://msc-data-science.iit.demokritos.gr/el/news/5-masters-thesis-scholarships-qualco)!**
 
 All topics are close to our ongoing research,
 allowing you to work on hot topics
