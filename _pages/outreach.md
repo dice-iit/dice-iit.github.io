@@ -5,8 +5,8 @@ permalink: /outreach/
 description: Collaborations, Demos, Datasets and work that facilitates research!
 nav: True
 nav_order: 5
-display_categories: [Datasets, Demos]
-horizontal: True
+display_categories: [Actions, Datasets, Demos]
+horizontal: False
 ---
 
 <!-- pages/projects.md -->
