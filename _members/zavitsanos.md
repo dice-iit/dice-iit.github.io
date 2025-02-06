@@ -12,8 +12,7 @@ lastname: Zavitsanos
 publications: 'author^=*Zavitsanos'
 
 teaser: >
-    Team lead. 
-    Research interests: machine learning, weak supervision, learning from imbalanced data, deep learning.
+    Research fellow and team lead. He is interested in machine learning, weak supervision, learning from imbalanced data and deep learning.
 
 profile:
     name: Ilias Zavitsanos
