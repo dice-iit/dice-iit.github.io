@@ -12,7 +12,7 @@ lastname: Paliouras
 publications: 'author^=*Paliouras'
 
 teaser: >
-    Head of The AI Lab SKEL of IIT, NCSR Demokritos in Athens, Greece. 
+    Research director and Head of The AI Lab SKEL of IIT, NCSR Demokritos in Athens, Greece. 
 
 profile:
     name: George Paliouras
