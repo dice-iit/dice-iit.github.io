@@ -36,4 +36,6 @@ Member of the HMA/EMA Joint Big Data Steering Group.
 Board member & Machine Learning advisor of Langaware Inc.
 Area Chair of ECAI 2024.
 
+George is heading the SKEL lab of the Institute of Informatics and Telecommunications at NCSR “Demokritos”. With more than 60 researchers and staff, SKEL is one of the largest Artificial Intelligence labs in Europe. George holds a PhD from the University of Manchester, UK, on machine learning. He has performed basic and applied research in AI for more than 25 years, has chaired international conferences and serves in the editorial board of related journals. He has also been leading large international research projects and has co-founded innovative spin-offs.
+
 Research Interests - keywords: machine learning, knowledge discovery, artificial intelligence, bioinformatics, personalization, user modelling, information filtering, information extraction, event recognition, ontology learning, grammar learning, web mining.
