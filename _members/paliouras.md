@@ -2,7 +2,7 @@
 layout: profile
 inline: false
 group: Advisors
-group_rank: 1
+group_rank: 2
 in_group_rank: 1
 team_frontpage: false
 
