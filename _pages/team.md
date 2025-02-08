@@ -58,7 +58,6 @@ nav_rank: 1
     </div>
 </p>
     {% endfor %}
-    <div class="row no-gutters"></div>
 {% endfor %}
 
 <div class="container mt-5" role="main">
