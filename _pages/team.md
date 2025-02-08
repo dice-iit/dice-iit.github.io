@@ -8,7 +8,6 @@ nav_rank: 1
 ---
 
 {% assign groups = site.members | sort: "group_rank" | map: "group" | uniq %}
-{% assign pad = 1 %}
 {% for group in groups %}
 ## {{ group }}
 
@@ -59,9 +58,6 @@ nav_rank: 1
     </div>
 </p>
     {% endfor %}
-    {% if pad %}
-    <p></p>
-    {% endif %}
 {% endfor %}
 
 <div class="container mt-5" role="main">
