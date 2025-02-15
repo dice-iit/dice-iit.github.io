@@ -2,7 +2,7 @@
 layout: profile
 inline: false
 group: Admin
-group_rank: 3
+group_rank: 4
 in_group_rank: 1 
 team_frontpage: false
 
