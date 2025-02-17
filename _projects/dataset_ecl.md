@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Management Discussion's & Analysis + Auditors Opinion
+title: MD&A and Auditors Opinion
 description: Extension of the ECL Dataset with Auditors Opinion for bankruptcy prediction
 img: /assets/img/dataset_eclao_logo.png
 importance: 1

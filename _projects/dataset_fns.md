@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Financial Narrative Summarization (FNS 2023) - Greek
+title: Financial Narrative Summarization
 description: FNS 2023 Training and validation data for the Greek language
 img: /assets/img/dataset_fns_logo.png
 importance: 3
