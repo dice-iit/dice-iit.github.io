@@ -6,16 +6,16 @@ group_rank: 4
 in_group_rank: 1 
 team_frontpage: false
 
-title: Sofoklis Karavelas
-description: Profile of Admin Sofoklis Karavelas
-lastname: Karavelas
-publications: 'author^=*Karavelas'
+title: Sofoklis Karavellas
+description: Profile of Admin Sofoklis Karavellas
+lastname: Karavellas
+publications: 'author^=*Karavellas'
 
 teaser: >
     System administrator for the Software & Knowledge Engineering Lab (SKEL) of NCSR "Demokritos".
 
 profile:
-    name: Sofoklis Karavelas
+    name: Sofoklis Karavellas
     align: right
     image: profile_karavelas.jpg
     role: Technical Support
