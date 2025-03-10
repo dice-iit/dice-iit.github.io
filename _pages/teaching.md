@@ -26,17 +26,26 @@ Check out the [course details](https://msc-data-science.iit.demokritos.gr/en/cla
 
 We offer co-supervsision for Bachelor's and Master's theses for computer science students.
 
-**Check out [current open theses](https://www.iit.demokritos.gr/education/subjects-msc-bsc-internships/) and [past theses](https://msc-data-science.iit.demokritos.gr/el/news/5-masters-thesis-scholarships-qualco)!**
+Check out our **current open theses** and feel free to reach out:
+
+1. [Board changes effect on companies financial status](https://www.iit.demokritos.gr/dissertations/board-changes-effect-on-companies-financial-status/)
+2. [Financial narrative summarization](https://www.iit.demokritos.gr/dissertations/financial-narrative-summarization/)
+3. [Graph Analytics on Financial Data](https://www.iit.demokritos.gr/dissertations/graph-analytics-on-financial-data/)
+4. [PU Learning from text (or multimodal) data with class imbalance](https://www.iit.demokritos.gr/dissertations/pu-learning-from-text-or-multimodal-data-with-class-imbalance/)
 
 All topics are close to our ongoing research,
 allowing you to work on hot topics
 and to gain deeper insight into the field and our work.
 As our work evolves, the topics change continuously.
 If you want to know more about our currently available topics,
-please get in touch with us:
-
+please get in touch with us!
 
 
 Please enclose in your mail your research interests and experiences so far.
 Knowing about your favorite courses, projects, and personal experience
 helps us to find the right thesis topic for you.
+
+Here you can also see our [past theses in the context of Qualco Scholarship Programme](https://msc-data-science.iit.demokritos.gr/el/news/5-masters-thesis-scholarships-qualco)!
+
+
+
