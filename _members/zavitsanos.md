@@ -18,7 +18,7 @@ profile:
     name: Ilias Zavitsanos
     align: right
     image: profile_zavitsanos.jpg
-    role: Team Lead
+    role: Tenured Researcher
     email: izavits@iit.demokritos.gr
     website: https://izavits.github.io
     github: izavits
