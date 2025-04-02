@@ -7,12 +7,12 @@ in_group_rank: 1
 team_frontpage: true
 
 title: Ilias Zavitsanos
-description: Profile of Faculty Member Ilias Zavitsanos
+description: Profile of Team Lead Ilias Zavitsanos
 lastname: Zavitsanos
 publications: 'author^=*Zavitsanos'
 
 teaser: >
-    Research fellow and team lead. He is interested in machine learning, weak supervision, learning from imbalanced data and deep learning.
+    Research Scientist and Team Lead. He is interested in machine learning, weak supervision, learning from imbalanced data and deep learning.
 
 profile:
     name: Ilias Zavitsanos
