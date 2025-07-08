@@ -76,5 +76,6 @@ nav_rank: 1
         <li>George Petasis</li>
         <li>Eirini Spyropoulou</li>
         <li>Manos Fergadiotis</li>
+        <li>Elena Galifianaki</li>
     </ul>
 </div>
