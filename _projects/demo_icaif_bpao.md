@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Predicting bankruptcy using text from the 10K report
-description: Bankruptcy Prediction using MD&A and Auditor's Opinio
+title: DICE Demos
+description: Explore our demos on financial applications!
 img: /assets/img/demo_bpmao.jpg
 importance: 1
 category: Demos
