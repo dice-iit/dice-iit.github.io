@@ -52,7 +52,7 @@ Performance & ROI Impact
 By shifting focus to predictive modeling, we significantly reduce "wasted" audits and maximize budget productivity.
 
 
-![Performance Comparison Matrix](/assets/img/service/performance_matrix.png)
+<img src="/assets/img/service/performance_matrix.png" alt="Oversight Costs Analysis" width="1200"/>
 
 #### Refined Capital Efficiency
 
