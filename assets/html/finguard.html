@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FinGuard | Audit Intelligence for Financial Misstatement Detection</title>
+  <meta name="description" content="FinGuard is a PU-learning risk-scoring engine that helps regulators, auditors, and investors catch financial misstatements earlier, at lower cost, and with explainable signals." />
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-2: #0a1628;
+      --card: rgba(255, 255, 255, 0.075);
+      --card-strong: rgba(255, 255, 255, 0.12);
+      --line: rgba(255, 255, 255, 0.16);
+      --line-strong: rgba(255, 255, 255, 0.26);
+      --text: #edf6ff;
+      --muted: #a9b9ca;
+      --muted-2: #7f90a4;
+      --accent: #6ee7f9;
+      --accent-2: #8b5cf6;
+      --accent-3: #34d399;
+      --warning: #fbbf24;
+      --danger: #fb7185;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      --radius: 28px;
+      --radius-sm: 18px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(110, 231, 249, 0.22), transparent 32rem),
+        radial-gradient(circle at 80% 10%, rgba(139, 92, 246, 0.22), transparent 34rem),
+        radial-gradient(circle at 50% 55%, rgba(52, 211, 153, 0.09), transparent 36rem),
+        linear-gradient(180deg, #07111f 0%, #09182b 45%, #07111f 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(circle at 50% 20%, black, transparent 72%);
+      opacity: 0.55;
+      z-index: -3;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 50% 0%, transparent 0 52%, rgba(7,17,31,0.58) 100%);
+      z-index: -2;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .shell {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav-wrap {
+      position: sticky;
+      top: 14px;
+      z-index: 30;
+      padding: 14px 0 0;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      border: 1px solid var(--line);
+      background: rgba(7, 17, 31, 0.72);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.22);
+      border-radius: 999px;
+      padding: 10px 12px 10px 16px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 780;
+      letter-spacing: -0.03em;
+      font-size: 1.02rem;
+      white-space: nowrap;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 10px 28px rgba(110, 231, 249, 0.22);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .logo-mark svg {
+      width: 22px;
+      height: 22px;
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.25));
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 999px;
+      transition: 180ms ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .nav-cta {
+      padding: 10px 15px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(110,231,249,0.95), rgba(52,211,153,0.95));
+      color: #03131d;
+      font-weight: 780;
+      box-shadow: 0 16px 40px rgba(52,211,153,0.16);
+      white-space: nowrap;
+    }
+
+    .hero {
+      position: relative;
+      padding: 106px 0 70px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 46px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #d6f9ff;
+      font-size: 0.86rem;
+      font-weight: 720;
+      letter-spacing: 0.01em;
+      margin-bottom: 22px;
+    }
+
+    .pulse-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--accent-3);
+      box-shadow: 0 0 0 8px rgba(52, 211, 153, 0.14);
+      animation: pulse 2.2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(0.75); opacity: 0.7; }
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3.1rem, 7vw, 6.9rem);
+      line-height: 0.93;
+      letter-spacing: -0.085em;
+      max-width: 880px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 5%, var(--accent) 44%, #b9a8ff 78%, #dffcff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      margin: 24px 0 0;
+      color: #c4d2e2;
+      font-size: clamp(1.08rem, 1.6vw, 1.28rem);
+      line-height: 1.65;
+      max-width: 710px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-3));
+      color: #04131d;
+      border-color: transparent;
+      box-shadow: 0 18px 55px rgba(52, 211, 153, 0.2);
+    }
+
+    .btn-secondary {
+      color: #dff7ff;
+      background: rgba(255,255,255,0.06);
+    }
+
+    .micro-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .micro-proof span {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(255,255,255,0.11);
+    }
+
+    .micro-proof strong { color: var(--text); }
+
+    .hero-visual {
+      position: relative;
+      min-height: 560px;
+      display: grid;
+      place-items: center;
+    }
+
+    .orbit {
+      position: absolute;
+      width: min(92vw, 540px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(110, 231, 249, 0.17);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(110,231,249,0.12), transparent 44%),
+        radial-gradient(circle at 40% 35%, rgba(139,92,246,0.18), transparent 30%);
+      box-shadow: inset 0 0 70px rgba(110, 231, 249, 0.06);
+      animation: float 7s ease-in-out infinite;
+    }
+
+    .orbit::before,
+    .orbit::after {
+      content: "";
+      position: absolute;
+      inset: 12%;
+      border-radius: 50%;
+      border: 1px dashed rgba(255,255,255,0.17);
+      transform: rotate(14deg);
+    }
+
+    .orbit::after {
+      inset: 27%;
+      transform: rotate(-22deg);
+      border-color: rgba(52,211,153,0.22);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .dashboard {
+      position: relative;
+      z-index: 2;
+      width: min(100%, 520px);
+      border-radius: 34px;
+      border: 1px solid var(--line-strong);
+      background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.055));
+      backdrop-filter: blur(20px);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      overflow: hidden;
+    }
+
+    .dashboard::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 230px;
+      height: 230px;
+      border-radius: 50%;
+      background: rgba(110,231,249,0.18);
+      filter: blur(24px);
+    }
+
+    .dash-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .window-dots { display: flex; gap: 7px; }
+    .window-dots i { width: 10px; height: 10px; display: block; border-radius: 50%; background: rgba(255,255,255,0.32); }
+    .risk-badge {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: rgba(251, 191, 36, 0.13);
+      border: 1px solid rgba(251, 191, 36, 0.26);
+      color: #ffe7a3;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .risk-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .risk-card {
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.13);
+      background: rgba(5, 16, 30, 0.48);
+      padding: 16px;
+    }
+
+    .risk-card.wide { grid-column: 1 / -1; }
+
+    .risk-label {
+      color: var(--muted-2);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+    }
+
+    .risk-value {
+      margin-top: 8px;
+      font-size: 2.2rem;
+      font-weight: 850;
+      letter-spacing: -0.06em;
+    }
+
+    .risk-value small {
+      font-size: 0.9rem;
+      color: var(--muted);
+      letter-spacing: -0.02em;
+      font-weight: 700;
+    }
+
+    .bar-chart {
+      margin-top: 14px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 96px 1fr 42px;
+      align-items: center;
+      gap: 10px;
+      color: #c5d2df;
+      font-size: 0.86rem;
+    }
+
+    .bar-track {
+      height: 11px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.09);
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      display: block;
+      height: 100%;
+      width: var(--w);
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent-2), var(--accent), var(--accent-3));
+      box-shadow: 0 0 24px rgba(110,231,249,0.25);
+      transform-origin: left;
+      animation: growBar 1.1s ease both;
+    }
+
+    @keyframes growBar { from { transform: scaleX(0.12); } to { transform: scaleX(1); } }
+
+    .alert-card {
+      margin-top: 12px;
+      border-radius: 22px;
+      border: 1px solid rgba(110, 231, 249, 0.22);
+      background: rgba(110, 231, 249, 0.07);
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 12px;
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+
+    .alert-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 14px;
+      background: rgba(110,231,249,0.18);
+      display: grid;
+      place-items: center;
+      color: #bdf7ff;
+    }
+
+    .alert-card h3 {
+      margin: 0 0 4px;
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .alert-card p { margin: 0; color: var(--muted); font-size: 0.92rem; line-height: 1.5; }
+
+    section {
+      padding: 78px 0;
+      position: relative;
+    }
+
+    .section-head {
+      max-width: 780px;
+      margin-bottom: 34px;
+    }
+
+    .kicker {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      font-size: 0.78rem;
+      font-weight: 850;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2.1rem, 4.4vw, 4.3rem);
+      line-height: 1;
+      letter-spacing: -0.07em;
+    }
+
+    .lead {
+      margin: 18px 0 0;
+      color: #c1cfdd;
+      line-height: 1.7;
+      font-size: 1.08rem;
+      max-width: 780px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .glass-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,0.11), rgba(255,255,255,0.052));
+      box-shadow: 0 18px 55px rgba(0,0,0,0.16);
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      min-height: 210px;
+    }
+
+    .glass-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -35% -50% 40%;
+      height: 170px;
+      border-radius: 999px;
+      background: rgba(110, 231, 249, 0.08);
+      filter: blur(18px);
+      pointer-events: none;
+    }
+
+    .metric-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .metric {
+      font-size: clamp(2.6rem, 6vw, 4.9rem);
+      line-height: 0.9;
+      letter-spacing: -0.08em;
+      font-weight: 900;
+    }
+
+    .metric span {
+      background: linear-gradient(135deg, #ffffff, var(--accent), var(--accent-3));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .metric-title {
+      margin: 0 0 8px;
+      font-size: 1.1rem;
+      letter-spacing: -0.035em;
+    }
+
+    .metric-copy {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.065);
+      backdrop-filter: blur(14px);
+      box-shadow: var(--shadow);
+      padding: 30px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .panel h3 {
+      margin: 0;
+      font-size: clamp(1.6rem, 2.6vw, 2.55rem);
+      letter-spacing: -0.055em;
+      line-height: 1.04;
+    }
+
+    .panel p { color: var(--muted); line-height: 1.7; }
+
+    .unknown-map {
+      min-height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+    }
+
+    .cluster {
+      width: min(100%, 480px);
+      aspect-ratio: 1.05;
+      position: relative;
+      border-radius: 36px;
+      border: 1px solid rgba(255,255,255,0.13);
+      background:
+        radial-gradient(circle at 28% 24%, rgba(251,113,133,0.28), transparent 17%),
+        radial-gradient(circle at 70% 38%, rgba(110,231,249,0.24), transparent 16%),
+        radial-gradient(circle at 52% 74%, rgba(52,211,153,0.22), transparent 18%),
+        linear-gradient(145deg, rgba(255,255,255,0.09), rgba(255,255,255,0.04));
+      overflow: hidden;
+    }
+
+    .cluster::before {
+      content: "";
+      position: absolute;
+      inset: 20px;
+      border-radius: 28px;
+      border: 1px dashed rgba(255,255,255,0.18);
+    }
+
+    .node {
+      position: absolute;
+      width: var(--s);
+      height: var(--s);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.25);
+      box-shadow: 0 0 28px rgba(110,231,249,0.08);
+      left: var(--x);
+      top: var(--y);
+      transform: translate(-50%, -50%);
+    }
+
+    .node.pos { background: rgba(251,113,133,0.88); box-shadow: 0 0 30px rgba(251,113,133,0.28); }
+    .node.unk { background: rgba(110,231,249,0.55); }
+    .node.clean { background: rgba(52,211,153,0.46); }
+
+    .legend {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .legend span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.22);
+      color: #d7e4f2;
+      font-size: 0.78rem;
+      border: 1px solid rgba(255,255,255,0.11);
+    }
+
+    .legend i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+
+    .feature-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(255,255,255,0.11);
+    }
+
+    .feature-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(110,231,249,0.13);
+      color: var(--accent);
+    }
+
+    .feature h4 { margin: 0 0 4px; letter-spacing: -0.03em; }
+    .feature p { margin: 0; color: var(--muted); line-height: 1.55; }
+
+    .scoreboard {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .large-stat {
+      border-radius: var(--radius);
+      border: 1px solid rgba(110,231,249,0.22);
+      background:
+        linear-gradient(180deg, rgba(110,231,249,0.12), rgba(255,255,255,0.052)),
+        rgba(255,255,255,0.035);
+      padding: 30px;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow);
+    }
+
+    .large-stat .metric { font-size: clamp(4rem, 12vw, 8.5rem); }
+    .large-stat h3 { margin: 0; font-size: clamp(1.5rem, 3vw, 2.4rem); letter-spacing: -0.06em; }
+    .large-stat p { color: var(--muted); line-height: 1.7; max-width: 620px; }
+
+    .mini-stack { display: grid; gap: 18px; }
+
+    .mini-card {
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.065);
+      padding: 24px;
+      min-height: 170px;
+    }
+
+    .mini-card strong {
+      display: block;
+      font-size: 2.2rem;
+      letter-spacing: -0.06em;
+      margin-bottom: 8px;
+    }
+
+    .mini-card span { color: var(--muted); line-height: 1.6; display: block; }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.045);
+      box-shadow: var(--shadow);
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 18px 16px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      vertical-align: top;
+    }
+
+    .comparison-table th {
+      color: #e8f7ff;
+      background: rgba(255,255,255,0.07);
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .comparison-table td { color: #c4d2df; }
+    .comparison-table tr:last-child td { border-bottom: none; }
+    .comparison-table .highlight {
+      color: #02131d;
+      background: linear-gradient(135deg, rgba(110,231,249,0.95), rgba(52,211,153,0.95));
+      font-weight: 850;
+    }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .impact-card {
+      min-height: 270px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      padding: 26px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.105), rgba(255,255,255,0.052));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .impact-card::before {
+      content: attr(data-index);
+      position: absolute;
+      right: 20px;
+      top: 12px;
+      font-size: 5.4rem;
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: -0.12em;
+      color: rgba(255,255,255,0.045);
+    }
+
+    .impact-card h3 {
+      margin: 22px 0 12px;
+      font-size: 1.55rem;
+      letter-spacing: -0.045em;
+    }
+
+    .impact-card p { color: var(--muted); line-height: 1.7; margin: 0; }
+
+    .icon-bubble {
+      width: 52px;
+      height: 52px;
+      border-radius: 19px;
+      display: grid;
+      place-items: center;
+      background: rgba(110,231,249,0.13);
+      border: 1px solid rgba(110,231,249,0.2);
+      color: var(--accent);
+    }
+
+    .market-band {
+      border-radius: 34px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(139,92,246,0.22), transparent 30%),
+        radial-gradient(circle at 80% 30%, rgba(110,231,249,0.16), transparent 26%),
+        linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.045));
+      box-shadow: var(--shadow);
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 28px;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .market-band h2 { font-size: clamp(2rem, 3.8vw, 3.9rem); }
+
+    .market-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .market-pills span {
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.22);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: #d8e7f5;
+      font-size: 0.92rem;
+    }
+
+    .funnel {
+      display: grid;
+      gap: 12px;
+    }
+
+    .funnel-step {
+      display: grid;
+      grid-template-columns: 72px 1fr auto;
+      align-items: center;
+      gap: 14px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.13);
+      background: rgba(3, 13, 25, 0.38);
+      padding: 16px;
+    }
+
+    .funnel-step strong { font-size: 1.7rem; letter-spacing: -0.06em; }
+    .funnel-step p { margin: 0; color: var(--muted); line-height: 1.5; }
+    .funnel-step em { font-style: normal; color: var(--accent); font-weight: 850; }
+
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      counter-reset: phase;
+    }
+
+    .phase {
+      counter-increment: phase;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+      padding: 24px;
+      min-height: 240px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .phase::before {
+      content: "0" counter(phase);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(110,231,249,0.2), rgba(139,92,246,0.18));
+      border: 1px solid rgba(255,255,255,0.14);
+      color: #e9fbff;
+      font-weight: 900;
+      margin-bottom: 36px;
+    }
+
+    .phase::after {
+      content: "";
+      position: absolute;
+      left: 68px;
+      right: -20px;
+      top: 46px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(110,231,249,0.5), transparent);
+    }
+
+    .phase h3 { margin: 0 0 10px; letter-spacing: -0.04em; }
+    .phase p { margin: 0; color: var(--muted); line-height: 1.62; }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .team-card,
+    .track-card {
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.065);
+      padding: 28px;
+      box-shadow: 0 18px 55px rgba(0,0,0,0.14);
+    }
+
+    .team-card h3,
+    .track-card h3 { margin: 0 0 16px; font-size: 1.55rem; letter-spacing: -0.045em; }
+
+    .people {
+      display: grid;
+      gap: 9px;
+      margin-top: 22px;
+    }
+
+    .people span {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.055);
+      color: #d7e4f2;
+    }
+
+    .people span::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-3);
+      box-shadow: 0 0 16px rgba(52,211,153,0.35);
+    }
+
+    .track-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .track-item {
+      border-radius: 20px;
+      background: rgba(255,255,255,0.055);
+      border: 1px solid rgba(255,255,255,0.11);
+      padding: 18px;
+    }
+
+    .track-item strong { display: block; margin-bottom: 8px; color: #f2fbff; }
+    .track-item span { color: var(--muted); line-height: 1.6; }
+
+    .cta {
+      padding-bottom: 100px;
+    }
+
+    .cta-panel {
+      border-radius: 42px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background:
+        radial-gradient(circle at 20% 15%, rgba(110,231,249,0.24), transparent 30%),
+        radial-gradient(circle at 80% 50%, rgba(52,211,153,0.17), transparent 28%),
+        linear-gradient(135deg, rgba(255,255,255,0.13), rgba(255,255,255,0.052));
+      box-shadow: var(--shadow);
+      padding: clamp(28px, 5vw, 54px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-panel h2 { max-width: 860px; margin: 0 auto; }
+    .cta-panel p {
+      max-width: 760px;
+      margin: 20px auto 0;
+      color: #c8d7e6;
+      font-size: 1.12rem;
+      line-height: 1.7;
+    }
+
+    .cta-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 26px 0 38px;
+      color: var(--muted-2);
+      font-size: 0.88rem;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: 700ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .split,
+      .scoreboard,
+      .market-band,
+      .team-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 72px; }
+      .hero-visual { min-height: 480px; }
+      .card-grid,
+      .impact-grid { grid-template-columns: 1fr; }
+      .roadmap { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+      .comparison-table { min-width: 760px; }
+      .table-scroll { overflow-x: auto; padding-bottom: 4px; }
+    }
+
+    @media (max-width: 650px) {
+      .shell { width: min(100% - 28px, var(--max)); }
+      nav { border-radius: 22px; align-items: flex-start; }
+      .nav-cta { display: none; }
+      .hero { padding-top: 56px; }
+      .hero-visual { min-height: 420px; }
+      .dashboard { padding: 16px; border-radius: 26px; }
+      .risk-grid { grid-template-columns: 1fr; }
+      .risk-card.wide { grid-column: auto; }
+      .bar-row { grid-template-columns: 74px 1fr 36px; font-size: 0.76rem; }
+      section { padding: 58px 0; }
+      .panel, .glass-card, .large-stat, .market-band, .cta-panel { border-radius: 24px; padding: 22px; }
+      .roadmap, .track-grid { grid-template-columns: 1fr; }
+      .funnel-step { grid-template-columns: 1fr; }
+      .metric { font-size: 3.2rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap shell">
+    <nav aria-label="Primary navigation">
+      <a href="#top" class="brand" aria-label="FinGuard home">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3.2L19 6.1V11.4C19 15.7 16.2 19.5 12 20.8C7.8 19.5 5 15.7 5 11.4V6.1L12 3.2Z" stroke="white" stroke-width="1.8" />
+            <path d="M8.4 12.1L10.8 14.4L15.9 8.9" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+        FinGuard
+      </a>
+      <div class="nav-links" aria-label="Page sections">
+        <a href="#problem">Problem</a>
+        <a href="#solution">Solution</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#impact">Impact</a>
+        <a href="#roadmap">Roadmap</a>
+      </div>
+      <a class="nav-cta" href="#contact">PoC Partnership</a>
+    </nav>
+  </div>
+
+  <main id="top">
+    <header class="hero shell">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow"><span class="pulse-dot"></span> Proof of Concept for audit-risk intelligence</div>
+          <h1>Catch financial misstatements <span class="gradient-text">before they cost billions.</span></h1>
+          <p class="hero-copy">
+            FinGuard converts scarce, delayed misstatement labels into an explainable risk-scoring engine for SEC filings — helping regulators, auditors, and financial partners find hidden risk earlier and allocate oversight resources with precision.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Build the next version of FinGuard</a>
+            <a class="btn btn-secondary" href="#solution">See the technical edge</a>
+          </div>
+          <div class="micro-proof" aria-label="Key proof points">
+            <span><strong>3.4x</strong> detection lift</span>
+            <span><strong>3.6x</strong> ROI improvement</span>
+            <span><strong>45K</strong> validated cases</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="FinGuard risk intelligence dashboard illustration">
+          <div class="orbit" aria-hidden="true"></div>
+          <div class="dashboard reveal">
+            <div class="dash-top">
+              <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+              <span class="risk-badge">Early-risk signal</span>
+            </div>
+            <div class="risk-grid">
+              <div class="risk-card">
+                <div class="risk-label">Recall @ 10% coverage</div>
+                <div class="risk-value"><span class="counter" data-target="34" data-suffix="%">34%</span></div>
+              </div>
+              <div class="risk-card">
+                <div class="risk-label">ROI multiplier</div>
+                <div class="risk-value"><span class="counter" data-target="3.6" data-decimals="1" data-suffix="x">3.6x</span></div>
+              </div>
+              <div class="risk-card wide">
+                <div class="risk-label">Ranking efficiency</div>
+                <div class="bar-chart" aria-label="Model comparison bar chart">
+                  <div class="bar-row"><span>Baseline</span><div class="bar-track"><span class="bar-fill" style="--w: 29%"></span></div><span>10%</span></div>
+                  <div class="bar-row"><span>Sup. ML</span><div class="bar-track"><span class="bar-fill" style="--w: 65%"></span></div><span>22%</span></div>
+                  <div class="bar-row"><span>PU Pipeline</span><div class="bar-track"><span class="bar-fill" style="--w: 100%"></span></div><span>34%</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="alert-card">
+              <div class="alert-icon" aria-hidden="true">↗</div>
+              <div>
+                <h3>Prioritize the highest-risk filings</h3>
+                <p>White-box components provide per-instance explainability for targeted review and partner-ready trust.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="problem" class="shell">
+      <div class="section-head reveal">
+        <div class="kicker">The oversight gap</div>
+        <h2>Financial fraud is a needle-in-a-haystack problem with expensive consequences.</h2>
+        <p class="lead">
+          Audit teams and regulators monitor a vast universe of companies with capped budgets, manual workflows, and labels that arrive years after the damage has already spread.
+        </p>
+      </div>
+      <div class="card-grid">
+        <article class="glass-card metric-card reveal">
+          <div class="metric"><span>$2.3M</span></div>
+          <div>
+            <h3 class="metric-title">Average audit cost per firm</h3>
+            <p class="metric-copy">Manual review consumes high-value expert time, making full-market scrutiny economically unrealistic.</p>
+          </div>
+        </article>
+        <article class="glass-card metric-card reveal">
+          <div class="metric"><span>10K+</span></div>
+          <div>
+            <h3 class="metric-title">SEC-listed companies to monitor</h3>
+            <p class="metric-copy">A massive search space creates a structural mismatch between available personnel and the volume of risk.</p>
+          </div>
+        </article>
+        <article class="glass-card metric-card reveal">
+          <div class="metric"><span>3–5 yrs</span></div>
+          <div>
+            <h3 class="metric-title">Average detection lag</h3>
+            <p class="metric-copy">Misstatements often surface late, when reputational, regulatory, and investor losses have already compounded.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="solution" class="shell">
+      <div class="split">
+        <div class="panel reveal">
+          <div class="kicker">The scientific edge</div>
+          <h2>Most fraud is hidden, not labeled.</h2>
+          <p>
+            Standard supervised machine learning assumes a clean split between “fraud” and “clean” firms. In financial misstatement detection, the so-called clean set is often contaminated by undetected cases. FinGuard’s Positive-Unlabeled approach treats unlabeled firms as unknowns — not negatives.
+          </p>
+          <div class="feature-list">
+            <div class="feature">
+              <div class="feature-icon" aria-hidden="true">PU</div>
+              <div>
+                <h4>Positive-Unlabeled learning</h4>
+                <p>Models confirmed positives while learning from an unlabeled universe that may contain hidden misstatements.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon" aria-hidden="true">Δ</div>
+              <div>
+                <h4>Built for realistic constraints</h4>
+                <p>Robust to detection lag, label noise, and severe class imbalance — the actual data conditions of audit oversight.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon" aria-hidden="true">☑</div>
+              <div>
+                <h4>Explainable by design</h4>
+                <p>Per-instance interpretability helps reviewers understand why a company is prioritized for further inspection.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel unknown-map reveal" aria-label="Hidden fraud and unlabeled data visualization">
+          <div class="cluster">
+            <span class="node pos" style="--x:22%;--y:25%;--s:18px"></span>
+            <span class="node pos" style="--x:32%;--y:31%;--s:12px"></span>
+            <span class="node pos" style="--x:26%;--y:42%;--s:15px"></span>
+            <span class="node unk" style="--x:66%;--y:27%;--s:16px"></span>
+            <span class="node unk" style="--x:72%;--y:45%;--s:13px"></span>
+            <span class="node unk" style="--x:57%;--y:40%;--s:10px"></span>
+            <span class="node unk" style="--x:45%;--y:53%;--s:13px"></span>
+            <span class="node clean" style="--x:53%;--y:72%;--s:17px"></span>
+            <span class="node clean" style="--x:38%;--y:70%;--s:11px"></span>
+            <span class="node clean" style="--x:68%;--y:72%;--s:14px"></span>
+            <span class="node unk" style="--x:78%;--y:62%;--s:9px"></span>
+            <span class="node pos" style="--x:42%;--y:23%;--s:9px"></span>
+            <div class="legend">
+              <span><i style="background:#fb7185"></i> confirmed positives</span>
+              <span><i style="background:#6ee7f9"></i> unlabeled unknowns</span>
+              <span><i style="background:#34d399"></i> likely clean</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="evidence" class="shell">
+      <div class="section-head reveal">
+        <div class="kicker">Validated performance</div>
+        <h2>A step-change in detection efficiency and capital allocation.</h2>
+        <p class="lead">
+          The proposed PU pipeline was validated on a 12-year longitudinal study of SEC filings covering 45,000 cases and 7,000 companies from 2003 to 2014.
+        </p>
+      </div>
+      <div class="scoreboard">
+        <article class="large-stat reveal">
+          <div>
+            <div class="metric"><span class="counter" data-target="3.4" data-decimals="1" data-suffix="x">3.4x</span></div>
+            <h3>More misstatements detected at fixed coverage</h3>
+          </div>
+          <p>
+            At just 10% market coverage, FinGuard’s PU pipeline can identify roughly 34% of misstatements — outperforming the default baseline and existing supervised ML approaches.
+          </p>
+        </article>
+        <div class="mini-stack">
+          <article class="mini-card reveal">
+            <strong>0.69 vs 0.50</strong>
+            <span>AUC Recall improvement over sequential selection, improving the quality of the ranked review queue.</span>
+          </article>
+          <article class="mini-card reveal">
+            <strong>$26.1M</strong>
+            <span>Estimated cost per material misstatement detection, down from a ~$94.3M baseline.</span>
+          </article>
+        </div>
+      </div>
+
+      <div class="table-scroll" style="margin-top: 22px;">
+        <table class="comparison-table reveal" aria-label="FinGuard performance comparison">
+          <thead>
+            <tr>
+              <th>Feature / Metric</th>
+              <th>Default Baseline</th>
+              <th>Existing Supervised ML</th>
+              <th>FinGuard PU Pipeline</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Handles unlabeled data</td>
+              <td>✕</td>
+              <td>✕</td>
+              <td class="highlight">✓</td>
+            </tr>
+            <tr>
+              <td>Recall @ 10% coverage</td>
+              <td>~10%</td>
+              <td>~22%</td>
+              <td class="highlight">~34%</td>
+            </tr>
+            <tr>
+              <td>Cost per detection</td>
+              <td>$94M+</td>
+              <td>$40M+</td>
+              <td class="highlight">$26M+</td>
+            </tr>
+            <tr>
+              <td>ROI multiplier</td>
+              <td>1.0x</td>
+              <td>2.1x</td>
+              <td class="highlight">3.6x</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="impact" class="shell">
+      <div class="section-head reveal">
+        <div class="kicker">Stakeholder impact</div>
+        <h2>One risk layer. Three high-value entry points.</h2>
+        <p class="lead">
+          FinGuard is designed as a force multiplier for institutions that need to prioritize oversight, diligence, and review under real resource constraints.
+        </p>
+      </div>
+      <div class="impact-grid">
+        <article class="impact-card reveal" data-index="01">
+          <div class="icon-bubble" aria-hidden="true">⚖</div>
+          <h3>Regulators</h3>
+          <p>Catch roughly one-third of misstatements at just 10% market coverage — turning capped budgets into a sharper, data-driven enforcement funnel.</p>
+        </article>
+        <article class="impact-card reveal" data-index="02">
+          <div class="icon-bubble" aria-hidden="true">⌁</div>
+          <h3>Auditors</h3>
+          <p>Direct expert review to high-risk targets, reducing low-value manual screening and converting sunk audit cost into recovered value.</p>
+        </article>
+        <article class="impact-card reveal" data-index="03">
+          <div class="icon-bubble" aria-hidden="true">◆</div>
+          <h3>Investors</h3>
+          <p>Create an early disclosure-risk signal for portfolio screening, lending decisions, underwriting workflows, and governance diligence.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="market" class="shell">
+      <div class="market-band reveal">
+        <div>
+          <div class="kicker">Market potential</div>
+          <h2>From audit research to deployable financial-risk infrastructure.</h2>
+          <p class="lead">
+            The PoC focuses on proving a practical, explainable risk-scoring layer for the 10,000+ company oversight universe — with expansion routes across regulatory technology, audit planning, investor diligence, lending, and insurance underwriting.
+          </p>
+          <div class="market-pills">
+            <span>RegTech</span>
+            <span>Audit analytics</span>
+            <span>Portfolio risk</span>
+            <span>Credit underwriting</span>
+            <span>Disclosure intelligence</span>
+          </div>
+        </div>
+        <div class="funnel" aria-label="Market funnel">
+          <div class="funnel-step">
+            <strong>10K+</strong>
+            <p>SEC-listed companies create a large monitoring universe with constrained review capacity.</p>
+            <em>coverage</em>
+          </div>
+          <div class="funnel-step">
+            <strong>10%</strong>
+            <p>Targeted review coverage can become a high-yield queue instead of a broad manual sweep.</p>
+            <em>focus</em>
+          </div>
+          <div class="funnel-step">
+            <strong>34%</strong>
+            <p>Misstatement recall at fixed coverage creates a compelling wedge for pilot deployment.</p>
+            <em>signal</em>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap" class="shell">
+      <div class="section-head reveal">
+        <div class="kicker">PoC roadmap</div>
+        <h2>A focused path from research foundation to a TRL-6 prototype.</h2>
+        <p class="lead">
+          The PoC is structured to move from integrated financial data and model calibration to live scoring, backtesting, and pilot-ready deployment.
+        </p>
+      </div>
+      <div class="roadmap">
+        <article class="phase reveal">
+          <h3>Data integration & feature engineering</h3>
+          <p>Build the ingestion layer and feature foundation for SEC filing-based risk scoring.</p>
+        </article>
+        <article class="phase reveal">
+          <h3>PU-model calibration & backtesting</h3>
+          <p>Refine the learning pipeline against historical misstatement outcomes and realistic label constraints.</p>
+        </article>
+        <article class="phase reveal">
+          <h3>Live risk scoring & pilot deployment</h3>
+          <p>Deliver a review-ready scoring interface for partner evaluation and workflow testing.</p>
+        </article>
+        <article class="phase reveal">
+          <h3>TRL 4 → 6 market entry</h3>
+          <p>Advance from validated lab prototype toward relevant-environment demonstration and commercialization readiness.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="team" class="shell">
+      <div class="team-grid">
+        <article class="team-card reveal">
+          <div class="kicker">The team</div>
+          <h2>DICE team of NCSRD</h2>
+          <div class="people" aria-label="Team members">
+            <span>Ilias Zavitsanos</span>
+            <span>Konstantinos Bougiatiotis</span>
+            <span>Andreas Sideras</span>
+            <span>Dimitris Kelesis</span>
+            <span>Nikos Reskos</span>
+          </div>
+        </article>
+        <article class="track-card reveal">
+          <div class="kicker">Track record</div>
+          <h2>Deep ML research, built for applied financial oversight.</h2>
+          <div class="track-grid">
+            <div class="track-item">
+              <strong>Published foundation</strong>
+              <span>Research track record across ICAIF ’21 & ’25, ACM Computing Surveys ’25, and Applied Intelligence ’25.</span>
+            </div>
+            <div class="track-item">
+              <strong>Multidisciplinary expertise</strong>
+              <span>NLP, graph ML, end-to-end ML pipelines, industrial experience, and Horizon Europe project delivery.</span>
+            </div>
+            <div class="track-item">
+              <strong>Realistic constraints</strong>
+              <span>Approach designed around scarce labels, delayed confirmation, imbalanced outcomes, and institutional review needs.</span>
+            </div>
+            <div class="track-item">
+              <strong>Partner-ready PoC</strong>
+              <span>Seeking scientific and investor partners to move FinGuard from research validation to pilot deployment.</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="cta shell">
+      <div class="cta-panel reveal">
+        <div class="kicker">Call to action</div>
+        <h2> Next steps with FinGuard</h2>
+        <p>
+          We are seeking Proof-of-Concept funding and strategic partners to validate live risk scoring, pilot deployment, and the commercialization path for explainable financial misstatement intelligence.
+        </p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="mailto:dice@iit.demokritos.gr?subject=FinGuard%20PoC%20partnership&body=I%27d%20like%20to%20discuss%20a%206-month%20PoC%20partnership%20for%20FinGuard.">Start the partnership conversation</a>
+          <a class="btn btn-secondary" href="#evidence">Review the evidence</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-grid">
+      <div>© 2026 FinGuard. Audit intelligence for hidden financial misstatement risk.</div>
+    </div>
+  </footer>
+
+  <script>
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+
+    function animateCounter(el) {
+      const target = Number(el.dataset.target || 0);
+      const decimals = Number(el.dataset.decimals || 0);
+      const suffix = el.dataset.suffix || '';
+      if (prefersReduced) {
+        el.textContent = target.toFixed(decimals) + suffix;
+        return;
+      }
+      const start = performance.now();
+      const duration = 1150;
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const value = target * eased;
+        el.textContent = value.toFixed(decimals) + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.counter').forEach((element) => counterObserver.observe(element));
+  </script>
+</body>
+</html>
