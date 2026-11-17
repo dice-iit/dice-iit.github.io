@@ -51,3 +51,23 @@ body.sticky-bottom-footer {
 *****************************************************************************/
 
 // TODO: redefine projects layout.
+
+.finguard-feature {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border: 1px solid var(--global-divider-color);
+  border-left: 4px solid var(--global-theme-color);
+  border-radius: 0.5rem;
+  background: var(--global-card-bg-color);
+
+  .finguard-feature-label {
+    color: var(--global-theme-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  h2 { font-size: 1.6rem; }
+
+  .finguard-feature-selection { font-size: 0.9rem; }
+}

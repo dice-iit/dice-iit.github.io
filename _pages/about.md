@@ -16,6 +16,7 @@ profile:
     Athens, Greece
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
+featured_finguard: true
 social: false # includes social icons at the bottom of the page
 
 scholar:

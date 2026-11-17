@@ -41,6 +41,16 @@ layout: default
 
     <div class="clearfix">{{ content }}</div>
 
+    {% if page.featured_finguard %}
+      <section class="finguard-feature" aria-labelledby="finguard-feature-title">
+        <p class="finguard-feature-label">Featured project · Science Agora Proof of Concept</p>
+        <h2 id="finguard-feature-title">FinGuard: spot financial misstatement risk earlier</h2>
+        <p>FinGuard turns research on learning from limited labels into explainable risk scores for financial filings, helping auditors, regulators, and financial partners focus their attention where it matters most.</p>
+        <p class="finguard-feature-selection">One of 12 projects selected from 76 applications for Science Agora's Proof-of-Concept programme.</p>
+        <a class="btn btn-outline-primary" href="{{ '/finguard/' | relative_url }}">Explore FinGuard &rarr;</a>
+      </section>
+    {% endif %}
+
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
       <h2>
